@@ -9,84 +9,86 @@
     <script src="game.js"></script>
 </head>
 <body>
-    <!--
-    //text
-    The Psychic Game
-    Guess what letter I'm thinking of
-    Wins: # [start with 0]
-    Losses: # [start with 0]
-    Guesses left: [initial value = 9? ]
-    Your guesses so far: 
+    
+    <h1>The Psychic Game</h1>
+    <p>Guess what letter I'm thinking of</p>
+    <p id="wins-txt">Wins: 0</p>
+    <p id="losses-txt">Losses: 0</p>
+    <p id="guesses-left-txt">Guesses left: 9</p>
+    <p id="guesses-so-far-txt">Your guesses so far: </p>
 
-    choices
-    playerChoice
-
-    -->
 
     <script type="text/javascript">
-        // var choices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-        // var computerChoice;
-        // var wins = 0;
-        // var losses = 0;
-        //var guessesLeft = 9;
+		var letterChoices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']; // array of all options
+        var computerChoice;
 
-        document.addEventListener('keyup', userInput);
-        function userInput(event) {
-            var userGuess = event.key.toLowerCase();
-            //alert(userGuess);
-        }
-        /*for (var guessesLeft = 9; guessesLeft > 0; guessesLeft--) {
-            // 
-        }*/
-    
+        var wins = 0;
+        var losses = 0;
+		var guessesLeft = 9;
+		var guessesSoFar = '';
+        
+		var winsTxt = document.getElementById("wins-txt");
+		var lossesTxt = document.getElementById("losses-txt");
+		var guessesLeftTxt = document.getElementById("guesses-left-txt");
+		var guessesSoFarTxt = document.getElementById("guesses-so-far-txt");
+
+		// guessesLeft >= 0)
+			var computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)]; //computer choice
+
+			document.addEventListener('keyup', userInput); //user guess via keypress
+			function userInput(event) {
+				var userGuess = event.key.toLowerCase();
+				var newGuess;
+				
+				if (userGuess === computerChoice) {
+					wins++;
+					winsTxt.textContent = "Wins: " + wins;
+						//reset guesses???
+				} else if (userGuess != computerChoice && guessesLeft > 0) {
+					guessesLeft--;
+					guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
+					//append guess to guesses so far
+					newGuess = document.createElement("new-guess");
+					newGuess.textContent = userGuess;
+					guessesSoFarTxt.appendChild(newGuess);
+				} else if (userGuess != computerChoice && guessesLeft = 0) {
+					losses++;
+					lossesTxt.textContent = "Losses: " + losses;
+					guessesLeft = 9;
+					guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
+					//clear guesses so far - use removeChild?
+				}
+			}
+
+		}
     </script>
 </body>
 </html>
 
-
 <!-- 
 ## Option One: Psychic Game (Basic)
-
 ![Psychic](Images/1-Psychic.jpg)
-
 1. [Watch the demo](https://youtu.be/qTc45Lox97g).
-
 2. You're going to make a game just like the one in the video. Essentially, the app randomly picks a letter, and the user has to guess which letter the app chose. Put the following text on your page:
-
 3. Guess what letter I'm thinking of
-
 4. Wins: (# of times the user has guessed the letter correctly)
-
 5. Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
-
 6. Guesses Left: (# of guesses left. This will update)
-
 7. Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)
-
 8. When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
-
 9. When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins). 
-
-
 - - -
 
 ### Minimum Requirements
-
 Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Adding a README.md as well as adding this homework to your portfolio are required as well and more information can be found below.
-
 - - -
 
 ### Create a README.md
-
 Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-
 * [About READMEs](https://help.github.com/articles/about-readmes/)
-
 * [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-
 - - -
 
 ### Add To Your Portfolio
-
 After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
 -->
