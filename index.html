@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
-    <script src="game.js"></script>
+    <!--link rel="stylesheet" type="text/css" media="screen" href="style.css"-->
+    <!--script src="game.js"></script-->
 </head>
 <body>
     
@@ -32,35 +32,40 @@
 		var guessesLeftTxt = document.getElementById("guesses-left-txt");
 		var guessesSoFarTxt = document.getElementById("guesses-so-far-txt");
 
-		// guessesLeft >= 0)
+		// just need to figure out how to pick new letter
 			var computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)]; //computer choice
+			console.log(computerChoice);
+			
 
 			document.addEventListener('keyup', userInput); //user guess via keypress
 			function userInput(event) {
 				var userGuess = event.key.toLowerCase();
 				var newGuess;
-				
-				if (userGuess === computerChoice) {
-					wins++;
-					winsTxt.textContent = "Wins: " + wins;
-						//reset guesses???
-				} else if (userGuess != computerChoice && guessesLeft > 0) {
+
+				if (userGuess != computerChoice && guessesLeft > 1) {
 					guessesLeft--;
 					guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
 					//append guess to guesses so far
 					newGuess = document.createElement("new-guess");
 					newGuess.textContent = userGuess;
 					guessesSoFarTxt.appendChild(newGuess);
-				} else if (userGuess != computerChoice && guessesLeft = 0) {
+				} else if (userGuess != computerChoice && guessesLeft === 1) {
 					losses++;
 					lossesTxt.textContent = "Losses: " + losses;
-					guessesLeft = 9;
-					guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
-					//clear guesses so far - use removeChild?
+					resetGuesses();
+				} else if (userGuess === computerChoice) {
+					wins++;
+					winsTxt.textContent = "Wins: " + wins;
+					resetGuesses();
 				}
 			}
 
-		}
+			function resetGuesses() {
+				guessesLeft = 9;
+				guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
+				guessesSoFarTxt.textContent = "Your guesses so far: ";
+			}
+
     </script>
 </body>
 </html>
