@@ -5,11 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--link rel="stylesheet" type="text/css" media="screen" href="style.css"-->
-    <!--script src="game.js"></script-->
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
 </head>
 <body>
-    
     <h1>The Psychic Game</h1>
     <p>Guess what letter I'm thinking of</p>
     <p id="wins-txt">Wins: 0</p>
@@ -17,57 +15,54 @@
     <p id="guesses-left-txt">Guesses left: 9</p>
     <p id="guesses-so-far-txt">Your guesses so far: </p>
 
-
-    <script type="text/javascript">
-		var letterChoices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']; // array of all options
-        var computerChoice;
-
-        var wins = 0;
-        var losses = 0;
-		var guessesLeft = 9;
-		var guessesSoFar = '';
-        
-		var winsTxt = document.getElementById("wins-txt");
-		var lossesTxt = document.getElementById("losses-txt");
-		var guessesLeftTxt = document.getElementById("guesses-left-txt");
-		var guessesSoFarTxt = document.getElementById("guesses-so-far-txt");
-
-		// just need to figure out how to pick new letter - document onload?
-			var computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)]; //computer choice
-			console.log(computerChoice);
-			
-
-			document.addEventListener('keyup', userInput); //user guess via keypress
-			function userInput(event) {
-				var userGuess = event.key.toLowerCase();
-				var newGuess;
-
-				if (userGuess != computerChoice && guessesLeft > 1) {
-					guessesLeft--;
-					guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
-					//append guess to guesses so far
-					newGuess = document.createElement("new-guess");
-					newGuess.textContent = userGuess;
-					guessesSoFarTxt.appendChild(newGuess);
-				} else if (userGuess != computerChoice && guessesLeft === 1) {
-					losses++;
-					lossesTxt.textContent = "Losses: " + losses;
-					resetGuesses();
-				} else if (userGuess === computerChoice) {
-					wins++;
-					winsTxt.textContent = "Wins: " + wins;
-					resetGuesses();
-				}
-			}
-
-			function resetGuesses() {
-				guessesLeft = 9;
-				guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
-				guessesSoFarTxt.textContent = "Your guesses so far: ";
-			}
-
-    </script>
+    <script src="./assets/javascript/game.js"></script>
 </body>
+
+<!-- <script>
+var letterChoices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)];;
+console.log(computerChoice);
+
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
+var guessesSoFar = '';
+
+var winsTxt = document.getElementById("wins-txt");
+var lossesTxt = document.getElementById("losses-txt");
+var guessesLeftTxt = document.getElementById("guesses-left-txt");
+var guessesSoFarTxt = document.getElementById("guesses-so-far-txt");
+
+document.addEventListener('keyup', userInput);
+function userInput(event) {
+    var userGuess = event.key.toLowerCase();
+    var newGuess;
+
+    if (userGuess === computerChoice) {
+        wins++;
+        winsTxt.textContent = "Wins: " + wins;
+        resetGuesses();
+    } else if (userGuess != computerChoice && guessesLeft > 1) {
+        guessesLeft--;
+        guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
+        newGuess = document.createElement("span");
+        newGuess.textContent = userGuess + " ";
+        guessesSoFarTxt.appendChild(newGuess);
+    } else if (userGuess != computerChoice && guessesLeft === 1) {
+        losses++;
+        lossesTxt.textContent = "Losses: " + losses;
+        resetGuesses();
+    } 
+}
+
+function resetGuesses() {
+    guessesLeft = 9;
+    guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
+    guessesSoFarTxt.textContent = "Your guesses so far: ";
+    computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)];
+    console.log(computerChoice);
+}
+</script> -->
 </html>
 
 <!-- 
@@ -82,10 +77,6 @@
 7. Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)
 8. When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
 9. When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins). 
-- - -
-
-### Minimum Requirements
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Adding a README.md as well as adding this homework to your portfolio are required as well and more information can be found below.
 - - -
 
 ### Create a README.md
