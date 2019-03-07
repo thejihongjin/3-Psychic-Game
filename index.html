@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
 </head>
+
 <body>
     <h1>The Psychic Game</h1>
     <p>Guess what letter I'm thinking of</p>
@@ -17,74 +18,4 @@
 
     <script src="./assets/javascript/game.js"></script>
 </body>
-
-<!-- <script>
-var letterChoices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)];;
-console.log(computerChoice);
-
-var wins = 0;
-var losses = 0;
-var guessesLeft = 9;
-var guessesSoFar = '';
-
-var winsTxt = document.getElementById("wins-txt");
-var lossesTxt = document.getElementById("losses-txt");
-var guessesLeftTxt = document.getElementById("guesses-left-txt");
-var guessesSoFarTxt = document.getElementById("guesses-so-far-txt");
-
-document.addEventListener('keyup', userInput);
-function userInput(event) {
-    var userGuess = event.key.toLowerCase();
-    var newGuess;
-
-    if (userGuess === computerChoice) {
-        wins++;
-        winsTxt.textContent = "Wins: " + wins;
-        resetGuesses();
-    } else if (userGuess != computerChoice && guessesLeft > 1) {
-        guessesLeft--;
-        guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
-        newGuess = document.createElement("span");
-        newGuess.textContent = userGuess + " ";
-        guessesSoFarTxt.appendChild(newGuess);
-    } else if (userGuess != computerChoice && guessesLeft === 1) {
-        losses++;
-        lossesTxt.textContent = "Losses: " + losses;
-        resetGuesses();
-    } 
-}
-
-function resetGuesses() {
-    guessesLeft = 9;
-    guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
-    guessesSoFarTxt.textContent = "Your guesses so far: ";
-    computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)];
-    console.log(computerChoice);
-}
-</script> -->
 </html>
-
-<!-- 
-## Option One: Psychic Game (Basic)
-![Psychic](Images/1-Psychic.jpg)
-1. [Watch the demo](https://youtu.be/qTc45Lox97g).
-2. You're going to make a game just like the one in the video. Essentially, the app randomly picks a letter, and the user has to guess which letter the app chose. Put the following text on your page:
-3. Guess what letter I'm thinking of
-4. Wins: (# of times the user has guessed the letter correctly)
-5. Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
-6. Guesses Left: (# of guesses left. This will update)
-7. Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)
-8. When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
-9. When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins). 
-- - -
-
-### Create a README.md
-Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
-* [About READMEs](https://help.github.com/articles/about-readmes/)
-* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
-- - -
-
-### Add To Your Portfolio
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
--->

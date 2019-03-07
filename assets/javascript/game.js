@@ -21,6 +21,8 @@ function userInput(event) {
         wins++;
         winsTxt.textContent = "Wins: " + wins;
         resetGuesses();
+
+	// did not implement check if userGuess already exists so same key will continue to count down
     } else if (userGuess != computerChoice && guessesLeft > 1) {
         guessesLeft--;
         guessesLeftTxt.textContent = "Guesses left: " + guessesLeft;
