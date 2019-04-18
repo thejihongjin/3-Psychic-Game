@@ -1,5 +1,5 @@
 var letterChoices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)];;
+var computerChoice = letterChoices[Math.floor(Math.random() * letterChoices.length)];
 console.log(computerChoice);
 
 var wins = 0;

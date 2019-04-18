@@ -1,4 +1,5 @@
-# 3-Psychic-Game
+# 3a-Psychic-Game
+https://thejihongjin.github.io/3a-Psychic-Game/
 
 ## Option One: Psychic Game (Basic)
 ![Psychic](./assets/images/1-Psychic.jpg)
